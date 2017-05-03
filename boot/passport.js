@@ -3,7 +3,7 @@ module.exports = function() {
 
     var passport = require('passport');
     var pool = require('../config/mysql');
-    var address = 'http://localhost:8080';
+    var address = 'http://smedialink.tk:8080';
 
     var LocalStrategy = require('passport-local').Strategy;
 

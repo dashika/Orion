@@ -1,8 +1,726 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/*--------------------------------------------------
+          Icons
+--------------------------------------------------*/
+
+@font-face {
+    font-family: 'icons';
+    src: url(/resources/mlisting-Regular.woff);
 }
 
-a {
-  color: #00B7FF;
+
+/*--------------------------------------------------
+          Main
+--------------------------------------------------*/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    min-width: 1035px;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body, p, a, input {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+
+/*--------------------------------------------------
+          Reusable styles
+--------------------------------------------------*/
+
+[data-tab] {
+    cursor: pointer;
+}
+
+[data-icon]:before {
+    font-family: 'icons';
+    content: attr(data-icon);
+    speak: none;
+    font-weight: 100;
+}
+
+[data-icon] {
+    line-height: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.icon {
+    font-size: 20px;
+    margin: 7px 0;
+}
+
+.v-line {
+    width: 1px;
+}
+
+.clear {
+    clear: both;
+}
+
+
+/*--------------------------------------------------
+          Colors
+--------------------------------------------------*/
+.blue-background {
+    background: #30749f;
+}
+
+.blue-color {
+    color: #30749f;
+}
+
+.darkblue-background {
+    background: #0D5E86;
+}
+
+.lightblue-background {
+    background: #3480AC;
+}
+
+.light-lightblue-background {
+    background: #66ABD5;
+}
+
+.white-background {
+    background: white;
+}
+
+.white-color {
+    color: white;
+}
+
+.grey-background {
+    background: #313539;
+}
+
+.grey-color {
+    color: #313539;
+}
+
+.lightgrey-color {
+    color: #838B8F;
+}
+
+.darkgrey-background {
+    background: #161819;
+}
+
+.darkgrey-color {
+    color: #161819;
+}
+
+.light-lightgrey-background {
+    background: #EAEAEA;
+}
+
+
+/*--------------------------------------------------
+          Main Container
+--------------------------------------------------*/
+
+.main-view-container {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*--------------------------------------------------
+          Header
+--------------------------------------------------*/
+
+/*     Big header     */
+
+.header-big .menu-container {
+    line-height: 80px;
+    height: 80px;
+}
+
+.header-big .logo-container span:last-child {
+    opacity: 0;
+}
+
+.header-big .menu-container input {
+    -webkit-transform: scaleX(0);
+    -moz-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0);
+}
+
+/*     Small header     */
+
+.header-small .menu-container {
+    line-height: 40px;
+    height: 40px;
+}
+
+.header-small .logo-container span:first-child {
+    opacity: 0;
+}
+
+.header-small .menu-container input {
+    -webkit-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+/*     Main header     */
+
+.main-view-header {
+    width: 100%;
+    display: table;
+    position: absolute;
+    font-weight: 600;
+    table-layout: fixed;
+}
+
+.main-view-header .login-container p {
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.main-view-header .logo-container,
+.main-view-header .login-container {
+    width: 200px;
+}
+
+.main-view-header .menu-container {
+    position: relative;
+    text-align: center;
+    -webkit-transition: line-height 500ms, height 500ms;
+    -moz-transition: line-height 500ms, height 500ms;
+    -o-transition: line-height 500ms, height 500ms;
+    transition: line-height 500ms, height 500ms;
+    white-space: nowrap;
+}
+
+.main-view-header > * {
+    padding: 0;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.main-view-header .logo-container {
+    position: relative;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.main-view-header .logo-container span {
+    vertical-align: middle;
+    position: relative;
+    -webkit-transition: opacity 500ms;
+    -moz-transition: opacity 500ms;
+    -o-transition: opacity 500ms;
+    transition: opacity 500ms;
+}
+
+.main-view-header .logo-container span:first-child {
+    margin-left: 20px;
+    font-size: 117px;
+}
+
+.main-view-header .logo-container span:last-child {
+    left: -50px;
+    font-size: 26px;
+}
+
+.main-view-header .menu-container li,
+.main-view-header .login-container > * {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.main-view-header .menu-container li + li,
+.main-view-header .login-container > * {
+    margin-right: 20px;
+    line-height: normal;
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+}
+
+.main-view-header .menu-container li:nth-child(2) {
+    margin-left: 20px;
+}
+
+.main-view-header .menu-container li:first-child {
+    left: 0;
+    position: absolute;
+}
+
+.main-view-header .menu-container li:first-child input {
+    background-image: url('/resources/ic_find.png');
+    background-repeat: no-repeat;
+    background-position: 132px 5px;
+    margin: 0 20px 0 20px;
+    border: none;
+    height: 24px;
+    width: 117px;
+    border-radius: 2px;
+    box-shadow: inset 0 3px 0 0 rgba(0, 0, 0, 0.2);
+    padding: 0 23px 0 10px;
+    vertical-align: middle;
+    -webkit-transition: -webkit-transform 500ms;
+    -moz-transition: -moz-transform 500ms;
+    transition: transform 500ms;
+    -webkit-transform-origin: 0 50%;
+    -moz-transform-origin: 0 50%;
+    -ms-transform-origin: 0 50%;
+    -o-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+}
+
+@media (max-width: 1366px) {
+    .main-view-header .menu-container li:first-child input {
+        -webkit-transform: scaleX(0);
+        -moz-transform: scaleX(0);
+        -ms-transform: scaleX(0);
+        -o-transform: scaleX(0);
+        transform: scaleX(0);
+    }
+}
+
+.main-view-header .button:hover {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.main-view-header .button:active {
+    -webkit-transform: translate(0, 1px);
+    -moz-transform: translate(0, 1px);
+    -ms-transform: translate(0, 1px);
+    transform: translate(0, 1px);
+}
+
+.main-view-header .login-container {
+    text-align: right;
+}
+
+.main-view-header .v-line {
+    height: 50%;
+    opacity: 0.2;
+    vertical-align: middle;
+}
+
+
+/*--------------------------------------------------
+          Index page
+--------------------------------------------------*/
+
+.index-view {
+    width: 100%;
+    height: 100%;
+}
+
+.findscreen {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.findscreen .content,
+.findscreen .footer {
+    display: table-row;
+}
+
+.findscreen .footer {
+    height: 120px;
+    cursor: pointer;
+}
+
+.findscreen .padder {
+    display: table-cell;
+}
+
+.findscreen .content .wrapper {
+    display: table-cell;
+    vertical-align: bottom;
+    width: 640px;
+}
+
+.findscreen .content .wrapper h1 {
+    font-weight: 400;
+    font-size: 4em;
+    margin: 120px 0 40px 0;
+}
+
+.findscreen .content .wrapper p {
+    font-size: 2.2em;
+    font-weight: 300;
+    line-height: 40px;
+    margin: 0 0 80px 0;
+    letter-spacing: 0.1px;
+}
+
+.findscreen .content .wrapper .findblock-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 30px 30px 0 30px;
+    width: 100%;
+    margin: -30px 0 0 -30px;
+}
+
+.findscreen .content .findblock {
+    width: 100%;
+    height: 250px;
+    -moz-border-radius: 2px 2px 0 0;
+    -webkit-border-radius: 2px 2px 0 0;
+    border-radius: 2px 2px 0 0;
+    overflow: hidden;
+    -webkit-box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.5);
+}
+
+.findscreen .content .findblock input[type='text'] {
+    margin: 0;
+    height: 30px;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1.3em;
+    width: 500px;
+    float: left;
+}
+
+.findscreen .content .findblock input[type='text']:focus {
+    outline: none;
+}
+
+.findscreen .content .findblock .submit {
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    text-align: center;
+    font-size: 1.3em;
+    overflow: hidden;
+}
+
+.findscreen .content .findblock .submit:hover {
+    opacity: 0.75;
+    cursor: default;
+}
+
+.findscreen .content .findblock .submit:active {
+    line-height: 52px;
+}
+
+.findscreen .content .findblock .objects {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.findscreen .content .findblock .objects .item {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100px;
+    text-align: center;
+    line-height: 25px;
+}
+
+.findscreen .content .findblock .objects .item[data-selected] {
+    background: #161819;
+    color: white;
+}
+
+.findscreen .content .findblock .objects .item:hover:not([data-selected]) {
+    background: #838B8F;
+    color: #313539;
+    cursor: pointer;
+}
+
+.findscreen .content .findblock .operations {
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.findscreen .content .findblock .operations .item {
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+    line-height: normal;
+}
+
+.findscreen .content .findblock .operations .item:hover {
+    color: #161819;
+    cursor: pointer;
+}
+
+.findscreen .content .findblock .operations .item:not([data-selected]):after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    bottom: -5px;
+    background: #30749f;
+    position: absolute;
+    -webkit-transform: scaleX(0);
+    -moz-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: -webkit-transform 400ms;
+    -moz-transition: -moz-transform 400ms;
+    -o-transition: -o-transform 400ms;
+    transition: transform 400ms;
+}
+
+.findscreen .content .findblock .operations .item[data-selected] {
+    color: #161819;
+}
+
+.findscreen .content .findblock .operations .item[data-selected]:after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    bottom: -5px;
+    background: #30749f;
+    position: absolute;
+    -webkit-transition: -webkit-transform 400ms;
+    -moz-transition: -moz-transform 400ms;
+    -o-transition: -o-transform 400ms;
+    transition: transform 400ms;
+    -webkit-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.findscreen .footer .wrapper {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 30px;
+}
+
+
+.advantagesscreen {
+    width: 100%;
+}
+
+.advantagesscreen .advantages-container {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    -moz-box-shadow: inset 0 -30px 30px 0 rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: inset 0 -30px 30px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 -30px 30px 0 rgba(0, 0, 0, 0.5);
+}
+
+.advantagesscreen .advantages-container .item {
+    display: table-cell;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.advantagesscreen .advantages-container .item .padder {
+    padding-top: 56.25%;
+}
+
+.advantagesscreen .advantages-container .item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    -webkit-transition: -webkit-transform 400ms;
+    -moz-transition: -moz-transform 400ms;
+    -o-transition: -o-transform 400ms;
+    transition: transform 400ms;
+    -webkit-transform-origin: 50% 100%;
+    -moz-transform-origin: 50% 100%;
+    -ms-transform-origin: 50% 100%;
+    -o-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+}
+
+.advantagesscreen .advantages-container .item .text {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    line-height: 40px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 600;
+    background: rgba(234, 234, 234, 0.85);
+}
+
+.advantagesscreen .advantages-container .item:hover img {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.mobile-block {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.mobile-block > * {
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.mobile-block .image-wrapper {
+    width: 451px;
+}
+
+.mobile-block .image-wrapper img {
+    margin: 100px;
+}
+
+.mobile-block .content-wrapper h1 {
+    margin: 0 0 10px 0;
+    font-weight: 400;
+    font-size: 2.2em;
+}
+
+.mobile-block .content-wrapper p {
+    margin: 10px 0 40px 0;
+    font-weight: 100;
+    font-size: 2em;
+}
+
+.mobile-block .content-wrapper img:last-child {
+    margin-left: 40px;
+}
+
+.index-view .footer-map-block {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.index-view .footer-map-block ul {
+    display: inline-block;
+    text-align: left;
+    padding: 0;
+    margin: 40px 0;
+}
+
+.index-view .footer-map-block li {
+    list-style: none;
+    letter-spacing: 1px;
+}
+
+.index-view .footer-map-block .header {
+    line-height: 40px;
+    font-weight: 600;
+}
+
+.index-view .footer-map-block .item {
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.index-view .offer-block {
+    padding: 20px 100px;
+    text-align: justify;
+    letter-spacing: 1px;
+    font-size: 0.9em;
+    line-height: 20px;
+}
+
+.index-view .view-footer {
+    border-top-style: solid;
+    border-width: 1px;
+    border-color: rgba(131, 139, 143, 0.75);
+    box-shadow: 0 -1px 0 0 white;
+    overflow: hidden;
+}
+
+.index-view .view-footer img {
+    float: right;
+    margin: 40px 100px;
+}
+
+.index-view .view-footer p {
+    letter-spacing: 1px;
+    font-weight: 600;
+    float: left;
+    margin: 51px 100px;
+}
+
+
+/*--------------------------------------------------
+          Find View
+--------------------------------------------------*/
+
+.find-view {
+    width: 100%;
+    height: 100%;
+}
+
+.left-view-panel {
+    width: 200px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    -webkit-box-shadow: inset -3px 0 0 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset -3px 0 0 0 rgba(0, 0, 0, 0.2);
+    box-shadow: inset -3px 0 0 0 rgba(0, 0, 0, 0.2);
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.left-view-panel .header {
+    height: 40px;
+    width: 100%;
+    -webkit-box-shadow: inset -3px 0 0 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset -3px 0 0 0 rgba(0, 0, 0, 0.2);
+    box-shadow: inset -3px 0 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.left-view-panel .block-item,
+.left-view-panel .block-header {
+    padding: 5px 20px;
+    margin: 15px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.left-view-panel .block-header {
+    padding: 5px 0;
+    margin: 34px 20px 14px 20px;
+    border-style: solid none;
+    border-width: 1px;
+    cursor: default;
+}
+
+.left-view-panel .block-item:hover {
+    background: #838B8F;
+    color: #313539;
+}
+
+.left-view-panel .icon {
+    margin-right: 18px;
 }

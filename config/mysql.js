@@ -5,7 +5,8 @@ var pool = mysql.createPool({
     host     : '54.69.132.69',
     user     : 'sml',
     password : '0272',
-    database : 'orion1'
+    database : 'orion1',
+    port: 3306
 });
 
 module.exports = pool;

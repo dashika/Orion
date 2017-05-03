@@ -17,7 +17,6 @@ router.post('/', function(req, res, next) {
                     if(err){
                         connection.rollback(function () {
                             connection.release();
-                            err.message = err.message.replace(err.code + ':', '');
                             err.status = 400;
                             next(err);
                         });

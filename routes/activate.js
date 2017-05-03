@@ -12,12 +12,12 @@ router.get('/', function(req, res, next) {
             if (err) {
                 connection.rollback(function () {
                     connection.release();
-                    err.message = err.message.replace(err.code + ':', '');
                     err.status = 400;
                     next(err);
                 });
             }
             else {
+                connection.commit();
                 connection.release();
                 res.status = 200;
                 res.send();

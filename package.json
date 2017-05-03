@@ -1,5 +1,5 @@
 {
-  "name": "untitled6",
+  "name": "mlisting",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -23,6 +23,18 @@
       "passport-odnoklassniki": "*",
       "aws-sdk": "*",
       "busboy": "*",
-      "crypto":"*"
+      "crypto": "*",
+      "formidable": "*",
+      "fs": "*",
+      "path": "*",
+      "pipe": "*",
+      "util": "*",
+      "socket.io": "*",
+      "http": "*",
+      "domain": "*",
+      "connect":"*",
+      "cookie":"*",
+      "string-similarity":"*"
+
   }
 }

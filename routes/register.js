@@ -18,7 +18,7 @@ router.post('/', function(req, res, next) {
                 if(err){
                     connection.rollback(function () {
                         connection.release();
-                        err.message = err.message.replace(err.code + ':', '');
+                        
                         if (err.message.indexOf('существует')!= -1)
                         {
                             err.status = 409;
